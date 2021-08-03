@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Login, Wallet } from './pages';
-// import './css/main.scss';
+import './css/main.css';
 
 function App() {
   return (

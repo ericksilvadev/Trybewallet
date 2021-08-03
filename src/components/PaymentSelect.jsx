@@ -8,6 +8,7 @@ export default class PaymentSelect extends React.Component {
       <label htmlFor="payment">
         Método de Pagamento
         <select
+          data-testid="method-input"
           name="method"
           id="payment"
           value={ value }

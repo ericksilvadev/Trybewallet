@@ -1,68 +1,134 @@
 @import 'base';
 
-.login-container {
+.home-page {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100vw;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 100vh;
-  background-color: rgb(230, 230, 230);
 
-  h1 {
-    position: absolute;
-    top: 9vh;
-    font-size: 35px;
-    font-weight: 500;
-    color: $blue-main;
-  }
-
-  .login-form {
+  .login-container {
+    width: 50%;
+    height: 100%;
+    justify-content: center;
     display: flex;
     flex-direction: column;
-    border-radius: 7px;
     align-items: center;
-    justify-content: flex-start;
-    width: 400px;
-    height: 500px;
-    background-color: rgb(245, 245, 245);
-    padding: 10px;
-    color: $blue-main;
-
-    h2 {
-      margin: 70px 0px;
-      font-size: 30px;
-      font-weight: 400;
+    background-color: rgb(246, 246, 246);
+    
+    
+    .heading {
+      align-self: flex-start;
+      margin-top: 13vh;
+      margin-left: 100px;
+      
+      h1 {
+        font-size: 35px;
+        font-weight: 500;
+        color: $blue-main;
+        align-self: flex-start;
+        margin-bottom: 10px;
+      }
+  
+      h2 {
+        font-size: 20px;
+        font-weight: 300;
+        color: rgb(85, 85, 85);
+        align-self: flex-start;
+      }
     }
+    
+    .login-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10vh;
+      height: 70%;
+      width: 70%;
+      
+      .login-inputs-container {
+        display: flex;
+        flex-direction: column;
+        height: 60%;
+        width: 80%;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        label {
+          font-size: 16px;
+          color: rgb(95, 95, 95);
+        }
+        
+        input {
+          margin-top: 3px;
+          padding: 15px;
+          width: 400px;
+          background-color: white;
+          font-size: 15px;
+          border-radius: 3px;
+          border: 1px solid transparent;
+          outline: none;
+        }
+        
+        // .pass-input::before {
+          //   content: '';
+          //   width: 100px;
+          //   height: 100px;
+          //   background-color: red;
+          // }
+          
+          button {
+            background-color: $purple;
+            color: white;
+            padding: 15px;
+            margin-top: 16px;
+            width: 425px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: .2s;
+            border-radius: 3px;
+            outline: none;
+            &:hover {
+              background-color: #a678fd;
+            }
+            &:disabled {
+              background-color: rgba(219, 219, 219, 0.582);
+              cursor: default;
+              color: rgb(155, 155, 155);
+            }
+          }
 
-    .login-inputs-container {
+          .invalid-pass, .invalid-email {
+            border: 1px solid rgb(253, 52, 52);
+          }
+          
+          .pass-error, .email-error {
+            position: absolute;
+            color: rgb(253, 52, 52);
+            font-size: 13px;
+          }
+        }
+      }
+
+      .footer {
+        font-size: 15px;
+        color: rgb(97, 97, 97);
+        margin-bottom: 10px;
+      }
+      
+    }
+    .info-container {
+      width: 50%;
       display: flex;
       flex-direction: column;
-      height: 40%;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
+      background-color: $grey-main;
+      height: 100%;
+      font-size: 20px;
+      font-weight: 300;
+      color: rgb(70, 70, 70);
 
-      input {
-        @include inputs;
-      }
-
-      button {
-        @include inputs;
-        width: 100%;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: .2s;
-        background-color: #9095df;
-        
-        &:hover {
-            background-color: #8186c9;
-        }
-
-        &:disabled {
-          background-color: #5b5f9746;
-          cursor: default;
-        }
-      }
     }
-  }
 }

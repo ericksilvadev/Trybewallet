@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import EditExpenseForm from './EditExpenseForm';
 import ExpenseTable from './ExpenseTable';
 import { fetchCurrencies } from '../actions';
 
@@ -12,11 +13,12 @@ class Expenses extends React.Component {
   }
 
   render() {
-    const { loading } = this.props;
+    const { loading, editForm } = this.props;
     if (loading) { return <p> CARREGANDO... </p>; }
     return (
       <>
-        <ExpenseForm />
+        { editForm && <EditExpenseForm /> }
+        { !editForm && <ExpenseForm /> }
         <ExpenseTable />
       </>
     );
@@ -26,6 +28,7 @@ class Expenses extends React.Component {
 Expenses.propTypes = {
   loading: PropTypes.bool,
   getCurrencies: PropTypes.func.isRequired,
+  editForm: PropTypes.bool.isRequired,
 };
 
 Expenses.defaultProps = {
@@ -38,6 +41,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   loading: state.wallet.isFetching,
+  editForm: state.wallet.editForm,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

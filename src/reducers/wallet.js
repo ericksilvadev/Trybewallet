@@ -1,5 +1,11 @@
 import {
-  GET_CURRENCIES, FETCH_API, FAILED_REQUEST, ADD_EXPENSE, REMOVE_EXPENSE,
+  GET_CURRENCIES,
+  FETCH_API,
+  FAILED_REQUEST,
+  ADD_EXPENSE,
+  REMOVE_EXPENSE,
+  TOGGLE_EDIT,
+  EDIT_EXPENSE,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -8,6 +14,8 @@ const INITIAL_STATE = {
   isFetching: false,
   error: '',
   total: 0,
+  editForm: false,
+  editId: '',
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -30,6 +38,16 @@ const wallet = (state = INITIAL_STATE, action) => {
       total: action.value,
     };
   }
+  case TOGGLE_EDIT:
+    return {
+      ...state, editForm: true, editId: action.id };
+  case EDIT_EXPENSE: {
+    return {
+      ...state,
+      editForm: false,
+      expenses: [...state.expenses
+        .filter((expense) => expense.id !== action.payload.id),
+      { ...action.payload }].sort((a, b) => a.id - b.id) }; }
   default: return state;
   }
 };
