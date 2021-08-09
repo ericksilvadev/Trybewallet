@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable max-lines-per-function */
 import React from 'react';
@@ -22,10 +23,19 @@ class Login extends React.Component {
     this.validate = this.validate.bind(this);
   }
 
+  componentDidMount() {
+    if (!localStorage.expenses) {
+      localStorage.setItem('expenses', JSON.stringify([]));
+      localStorage.setItem('total', JSON.stringify(0));
+    }
+  }
+
   validate() {
     const { email, password } = this.state;
-    const emailValidate = /(.+)@(.+)\.(.+)/;
+    // eslint-disable-next-line max-len
+    const emailValidate = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const passwordValidate = /(.+){6,25}/;
+    // eslint-disable-next-line no-magic-numbers
     if (!emailValidate.test(email) && email.length > 5) {
       this.setState({ validEmail: false, activeBtn: false });
       return false;

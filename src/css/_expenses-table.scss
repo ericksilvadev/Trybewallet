@@ -1,0 +1,85 @@
+.expenses {
+  width: 100%;
+  border-collapse: collapse;
+  // margin-right: 20px;
+  text-align: center;
+  color: rgb(83, 83, 83);
+  font-weight: 400;
+  
+  th, td {
+    padding: 15px 10px;
+    min-width: 100px;
+  }
+
+  .currency {
+    width: 200px;
+    // text-align: center;
+  }
+
+  .expense {
+    font-weight: 600;
+    color: rgb(255, 93, 93);
+  }
+
+  .cambio {
+    font-weight: 600;
+    color: rgb(89, 89, 255);
+  }
+
+  .description {
+    text-align: left;
+    padding-left: 3vw;
+  }
+  
+  thead {
+    background-color: $blue-main;
+    color: rgb(236, 236, 236);
+    font-weight: lighter;
+    
+    tr {
+      font-size: 18px;
+      // text-align: left;
+    }
+  }
+
+  
+  tbody {
+    tr:nth-of-type(even) {
+      background-color: #7c7e9721;
+    }
+    tr.editing {
+      background-color: #ffc653b2;
+    }
+  }
+
+  button {
+    height: 35px;
+    background-color: rgb(255, 93, 93);
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    margin-bottom: 17px;
+    cursor: pointer;
+    transition: .2s;
+    margin: 0 2px;
+    color: rgb(46, 46, 46);
+    &:hover{
+      background-color: rgb(236, 85, 85);
+    }
+
+    &.edit {
+      background-color: $yellow-main;
+      &:hover{
+        background-color: #ffc653;
+      }
+    }
+  }
+}
+
+.no-expenses-text {
+  text-align: center;
+  margin-top: 20vh;
+  font-size: 30px;
+  font-weight: 300;
+  color: rgb(82, 82, 82);
+}
