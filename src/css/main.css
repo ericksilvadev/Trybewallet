@@ -1,5 +1,5 @@
 .header {
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,16 +9,33 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
-  height: 35px;
-  background-color: #1f1f1f;
-  color: #d9bee4;
+  padding: 30px 30px 20px 30px;
+  height: 65px;
+  background-color: #5B5F97;
+  color: #e4e4e4;
 }
 
-.header .logo {
-  height: 35px;
-  width: 35px;
-  cursor: pointer;
+.header .total h2 {
+  color: #2BFCB4;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.header .total p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.header .currency-container {
+  font-size: 20px;
+  text-align: right;
+  font-weight: 300;
+}
+
+.header .currency-container .currency {
+  font-size: 30px;
+  font-weight: 500;
+  color: #2BFCB4;
 }
 
 .home-page {
@@ -190,6 +207,155 @@
   color: #464646;
 }
 
+.expenses-form {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #5B5F97;
+  color: #e1e1e1;
+}
+
+.expenses-form input, .expenses-form select, .expenses-form textarea, .expenses-form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  resize: none;
+  margin-left: .5vw;
+  margin-bottom: 5px;
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.expenses-form input, .expenses-form textarea {
+  height: 21px;
+}
+
+.expenses-form select {
+  cursor: pointer;
+  height: 35px;
+}
+
+.expenses-form button {
+  height: 35px;
+  background-color: #2BFCB4;
+  width: 135px;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  margin-bottom: 17px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.expenses-form button:hover {
+  background-color: #2aeca8;
+}
+
+.expenses-form button.edit {
+  background-color: #FFC145;
+}
+
+.expenses-form button.edit:hover {
+  background-color: #ffc653;
+}
+
+.expenses {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: #535353;
+  font-weight: 400;
+}
+
+.expenses th, .expenses td {
+  padding: 15px 10px;
+  min-width: 100px;
+}
+
+.expenses .currency {
+  width: 200px;
+}
+
+.expenses .expense {
+  font-weight: 600;
+  color: #ff5d5d;
+}
+
+.expenses .cambio {
+  font-weight: 600;
+  color: #5959ff;
+}
+
+.expenses .description {
+  text-align: left;
+  padding-left: 3vw;
+}
+
+.expenses thead {
+  background-color: #5B5F97;
+  color: #ececec;
+  font-weight: lighter;
+}
+
+.expenses thead tr {
+  font-size: 18px;
+}
+
+.expenses tbody tr:nth-of-type(even) {
+  background-color: #7c7e9721;
+}
+
+.expenses tbody tr.editing {
+  background-color: #ffc653b2;
+}
+
+.expenses button {
+  height: 35px;
+  background-color: #ff5d5d;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  margin-bottom: 17px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  margin: 0 2px;
+  color: #2e2e2e;
+}
+
+.expenses button:hover {
+  background-color: #ec5555;
+}
+
+.expenses button.edit {
+  background-color: #FFC145;
+}
+
+.expenses button.edit:hover {
+  background-color: #ffc653;
+}
+
+.no-expenses-text {
+  text-align: center;
+  margin-top: 20vh;
+  font-size: 30px;
+  font-weight: 300;
+  color: #525252;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -199,5 +365,7 @@
 body {
   font-family: Montserrat, sans-serif;
   height: 100vh;
+  background-color: #f3f3f3;
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,29 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ReactComponent as Logo } from './wallet.svg';
 
 class Header extends React.Component {
   render() {
-    const { email, total = 0 } = this.props;
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+    // const { total = 0 } = this.props;
+    const total = JSON.parse(localStorage.getItem('total'));
     return (
       <header className="header">
-        <Logo className="logo" />
-        <p data-testid="email-field">
-          Email:
-          { email }
-        </p>
-        <p data-testid="total-field">{ Number(total).toFixed(2) }</p>
-        <p data-testid="header-currency-field">BRL</p>
+        {/* <Logo className="logo" /> */}
+        <div className="total">
+          <h2>{total < 0 ? formatter.format(0) : formatter.format(total)}</h2>
+          <p data-testid="total-field">
+            Despesas totais
+          </p>
+        </div>
+        <div className="currency-container">
+          <p data-testid="header-currency-field">Moeda de conversão</p>
+          <p className="currency">BRL</p>
+        </div>
       </header>
     );
   }
 }
-
-Header.propTypes = {
-  email: PropTypes.string.isRequired,
-  total: PropTypes.number,
-};
 
 Header.defaultProps = {
   total: 0,

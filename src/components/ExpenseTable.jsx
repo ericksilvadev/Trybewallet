@@ -8,25 +8,30 @@ const tableHeaders = [
   'Descrição',
   'Tag',
   'Método de pagamento',
-  'Valor',
   'Moeda',
+  'Valor',
   'Câmbio utilizado',
-  'Valor convertido',
   'Moeda de conversão',
+  'Valor convertido',
   'Editar/Excluir',
 ];
 
 class ExpenseTable extends React.Component {
   render() {
-    const { removeExpense, toggleEdit, expenses } = this.props;
+    const { removeExpense, toggleEdit, expenses, editForm } = this.props;
     return (
-      <table>
-        <thead>
-          <tr className="table-header">
-            { tableHeaders.map((header) => (<th key={ header }>{ header }</th>)) }
+      <table className="expenses">
+        <thead className="table-header">
+          <tr>
+            { tableHeaders.map((header, index) => (
+              <th key={ header } className={ index === 0 ? 'description' : '' }>
+                { header }
+              </th>
+            )) }
           </tr>
         </thead>
         <TableBoby
+          editForm={ editForm }
           removeExpense={ removeExpense }
           toggleEdit={ toggleEdit }
           expenses={ expenses }
@@ -37,6 +42,7 @@ class ExpenseTable extends React.Component {
 }
 
 ExpenseTable.propTypes = {
+  editForm: PropTypes.bool.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   removeExpense: PropTypes.func.isRequired,
   toggleEdit: PropTypes.func.isRequired,
@@ -45,6 +51,7 @@ ExpenseTable.propTypes = {
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  editForm: state.wallet.editForm,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -30,7 +30,9 @@ class ExpenseForm extends React.Component {
     const { getCurrencies } = this.props;
     getCurrencies();
     evt.preventDefault();
-    const { currencies, expenses, total, addExpense } = this.props;
+    const expenses = JSON.parse(localStorage.getItem('expenses'));
+    const total = JSON.parse(localStorage.getItem('total'));
+    const { currencies, addExpense } = this.props;
     const { value, currency } = this.state;
     const { ask: multiplier } = currencies[currency];
     const totalValue = value * multiplier;
@@ -52,6 +54,7 @@ class ExpenseForm extends React.Component {
         <label htmlFor="value">
           Valor
           <input
+            className="value"
             type="number"
             id="value"
             name="value"
@@ -84,7 +87,7 @@ class ExpenseForm extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <button type="submit">Adicionar despesa</button>
+        <button className="add" type="submit">Adicionar</button>
       </form>
     );
   }
@@ -92,18 +95,10 @@ class ExpenseForm extends React.Component {
 
 ExpenseForm.propTypes = {
   getCurrencies: PropTypes.func.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-  })).isRequired,
   addExpense: PropTypes.func.isRequired,
-  total: PropTypes.number,
   currencies: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object).isRequired,
     PropTypes.object]).isRequired,
-};
-
-ExpenseForm.defaultProps = {
-  total: 0,
 };
 
 const mapDispatchToProps = (dispatch) => ({

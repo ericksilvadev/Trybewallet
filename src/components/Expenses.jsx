@@ -13,13 +13,16 @@ class Expenses extends React.Component {
   }
 
   render() {
+    const expenses = JSON.parse(localStorage.getItem('expenses'));
     const { loading, editForm } = this.props;
     if (loading) { return <p> CARREGANDO... </p>; }
     return (
       <>
         { editForm && <EditExpenseForm /> }
         { !editForm && <ExpenseForm /> }
-        <ExpenseTable />
+        { expenses.length > 0
+          ? <ExpenseTable />
+          : <p className="no-expenses-text">Você ainda não possui nenhuma despesa</p> }
       </>
     );
   }
@@ -29,6 +32,7 @@ Expenses.propTypes = {
   loading: PropTypes.bool,
   getCurrencies: PropTypes.func.isRequired,
   editForm: PropTypes.bool.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 Expenses.defaultProps = {
@@ -42,6 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
   loading: state.wallet.isFetching,
   editForm: state.wallet.editForm,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expenses);

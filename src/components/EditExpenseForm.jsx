@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -28,7 +29,9 @@ class EditExpenseForm extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    const { expenses, total, editExpense, editId } = this.props;
+    const expenses = JSON.parse(localStorage.getItem('expenses'));
+    const total = JSON.parse(localStorage.getItem('total'));
+    const { editExpense, editId } = this.props;
     const { value } = this.state;
     const { exchangeRates } = expenses[Number(editId)];
     const multiplier = exchangeRates.ask;
@@ -51,6 +54,7 @@ class EditExpenseForm extends React.Component {
         <label htmlFor="value">
           Valor
           <input
+            className="value"
             type="number"
             id="value"
             data-testid="value-input"
@@ -86,7 +90,7 @@ class EditExpenseForm extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <button type="submit">Editar despesa</button>
+        <button className="edit" type="submit">Editar</button>
       </form>
     );
   }
@@ -94,18 +98,10 @@ class EditExpenseForm extends React.Component {
 
 EditExpenseForm.propTypes = {
   editId: PropTypes.number.isRequired,
-  expenses: PropTypes.arrayOf(PropTypes.shape({
-    exchangeRates: PropTypes.arrayOf(PropTypes.object),
-  })).isRequired,
   editExpense: PropTypes.func.isRequired,
-  total: PropTypes.number,
   currencies: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object).isRequired,
     PropTypes.object]).isRequired,
-};
-
-EditExpenseForm.defaultProps = {
-  total: 0,
 };
 
 const mapDispatchToProps = (dispatch) => ({

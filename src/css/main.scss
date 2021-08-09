@@ -1,6 +1,8 @@
 @import 'header';
 @import 'base';
 @import 'login';
+@import 'form';
+@import 'expenses-table';
 
 * {
   padding: 0;
@@ -11,4 +13,6 @@
 body {
   font-family: Montserrat, sans-serif;
   height: 100vh;
+  background-color: rgb(243, 243, 243);
+  overflow-x: hidden;
 }
