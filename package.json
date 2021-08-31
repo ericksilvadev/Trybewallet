@@ -7,6 +7,7 @@
     "@testing-library/react": "10.0.4",
     "@testing-library/user-event": "7.2.1",
     "bootstrap": "4.5.2",
+    "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -19,7 +20,10 @@
     "redux-thunk": "2.3.0",
     "stylelint-order": "4.1.0"
   },
+  "homepage": "https://ericksilvadev.github.io/trybewallet/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
