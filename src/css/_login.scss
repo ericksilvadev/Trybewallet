@@ -132,3 +132,15 @@
 
     }
 }
+
+@media (max-width: 768px) {
+  .mobile {
+    background-color: $purple;
+    color: rgb(231, 231, 231);
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+  }
+}

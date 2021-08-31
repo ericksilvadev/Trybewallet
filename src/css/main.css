@@ -207,6 +207,22 @@
   color: #464646;
 }
 
+@media (max-width: 768px) {
+  .mobile {
+    background-color: #9f6bff;
+    color: #e7e7e7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+  }
+}
+
 .expenses-form {
   width: 100vw;
   display: -webkit-box;

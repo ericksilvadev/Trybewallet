@@ -67,6 +67,9 @@ class Login extends React.Component {
       email, password, redirect, activeBtn, validEmail, validPassword,
     } = this.state;
     if (redirect) { return <Redirect to="/carteira" />; }
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      return <p className="mobile">Entre pelo desktop para visualizar esta aplicação</p>
+    }
     return (
       <div className="home-page">
         <section className="info-container">
