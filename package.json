@@ -21,10 +21,6 @@
     "stylelint-order": "4.1.0"
   },
   "homepage": "https://ericksilvadev.github.io/trybewallet/",
-<<<<<<< HEAD
-
-=======
->>>>>>> 0e62828db0b07ac8fe279c0eccb0d4dd8c0161ad
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
