@@ -4,7 +4,7 @@ O **Trybe Wallet** é um gerenciador de despesas e conversor de moedas, onde voc
 
 *Este projeto foi desenvolvido seguindo os requisitos e testes passados pela [Trybe](https://www.betrybe.com/), somente os estilos foram feitos de maneira totalmente independente*
 
-[project-demo](/images/trybewallet.png)
+[project-demo](./public/images/trybewallet.png)
 
 ## Principais tecnologias usadas
 
