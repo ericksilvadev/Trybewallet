@@ -71,8 +71,8 @@ class Login extends React.Component {
       <div className="home-page">
         <section className="info-container">
           <img
-            src="/images/wallet (1).png"
-            alt="default img"
+            src="/images/wallet.png"
+            alt="wallet icon"
           />
           <p>Tenha controle das suas despesas de forma rápida e prática</p>
         </section>
