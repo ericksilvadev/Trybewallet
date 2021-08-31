@@ -19,7 +19,11 @@
     "redux-thunk": "2.3.0",
     "stylelint-order": "4.1.0"
   },
+  "homepage": "https://ericksilvadev.github.io/trybewallet/",
+
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,6 +56,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-react-redux": "3.3.0",
     "eslint-plugin-sonarjs": "0.5.0",
+    "gh-pages": "^3.2.3",
     "jest-localstorage-mock": "2.4.3",
     "stylelint": "13.8.0",
     "stylelint-config-standard": "20.0.0"
